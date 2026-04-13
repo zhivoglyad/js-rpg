@@ -680,3 +680,70 @@ body {
     padding: 16px 10px;
   }
 }
+
+/* === Reset Confirm Modal === */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(30, 18, 8, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(2px);
+}
+
+.modal-overlay[hidden] {
+  display: none;
+}
+
+.modal {
+  background: var(--color-surface, #fdf6e3);
+  border: 2px solid var(--color-border, #c8a060);
+  border-radius: 8px;
+  padding: 28px 32px;
+  text-align: center;
+  max-width: 320px;
+  width: 90%;
+  box-shadow: 0 8px 32px rgba(30, 18, 8, 0.35);
+}
+
+.modal__title {
+  font-family: var(--font-title);
+  font-size: 18px;
+  color: var(--color-text-dark, #3a2000);
+  margin: 0 0 8px;
+}
+
+.modal__desc {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-text-muted, #7a5a30);
+  margin: 0 0 20px;
+}
+
+.modal__actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.btn--modal-confirm {
+  background: #8b1a1a;
+  color: #fff;
+  border: 1px solid #6a1010;
+}
+
+.btn--modal-confirm:hover {
+  background: #a82020;
+}
+
+.btn--modal-cancel {
+  background: transparent;
+  color: var(--color-text-dark, #3a2000);
+  border: 1px solid var(--color-border, #c8a060);
+}
+
+.btn--modal-cancel:hover {
+  background: rgba(180, 130, 60, 0.1);
+}
