@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Хроники: Меч и Магия</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Красная вспышка при получении урона -->
+    <div class="damage-flash" id="damage-flash"></div>
+
+    <div class="game-wrapper">
+      <header class="game-header">
+        <div class="header-titles">
+          <h1 class="game-title">Хроники: Меч и Магия</h1>
+          <p class="game-subtitle">✦ Текстовая RPG ✦</p>
+        </div>
+        <button class="btn btn--reset" id="btn-reset">⟳ Сброс</button>
+      </header>
+
+      <div class="game-main">
+        <!-- Левая колонка: статистика -->
+        <section class="panel panel--stats" aria-label="Статистика персонажа">
+          <h2 class="panel__title">Персонаж</h2>
+          <ul class="stats-list">
+            <li class="stats-row">
+              <span class="stats-label">Имя</span
+              ><span class="stats-value" id="stat-name">—</span>
+            </li>
+            <li class="stats-row">
+              <span class="stats-label">Здоровье</span>
+              <span class="stats-value" id="stat-hp">—</span>
+            </li>
+            <li class="stats-row stats-row--bar">
+              <div class="hp-bar-track">
+                <div class="hp-bar-fill" id="hp-bar"></div>
+              </div>
+            </li>
+            <li class="stats-row">
+              <span class="stats-label">Сила</span
+              ><span class="stats-value" id="stat-str">—</span>
+            </li>
+            <li class="stats-row">
+              <span class="stats-label">Защита</span
+              ><span class="stats-value" id="stat-def">—</span>
+            </li>
+            <li class="stats-row">
+              <span class="stats-label">Уровень</span
+              ><span class="stats-value" id="stat-level">—</span>
+            </li>
+            <li class="stats-row">
+              <span class="stats-label">Опыт</span
+              ><span class="stats-value" id="stat-xp">—</span>
+            </li>
+            <li class="stats-row">
+              <span class="stats-label">Инвентарь</span
+              ><span class="stats-value stats-value--inv" id="stat-inv"
+                >пусто</span
+              >
+            </li>
+          </ul>
+
+          <!-- Блок врага (скрыт вне боя) -->
+          <div class="enemy-panel" id="enemy-panel" hidden>
+            <h2 class="panel__title panel__title--enemy">Враг</h2>
+            <pre class="enemy-art" id="enemy-art"></pre>
+            <ul class="stats-list">
+              <li class="stats-row">
+                <span class="stats-label">Имя</span
+                ><span class="stats-value" id="enemy-name">—</span>
+              </li>
+              <li class="stats-row">
+                <span class="stats-label">Здоровье</span
+                ><span class="stats-value" id="enemy-hp">—</span>
+              </li>
+              <li class="stats-row stats-row--bar">
+                <div class="hp-bar-track">
+                  <div
+                    class="hp-bar-fill hp-bar-fill--enemy"
+                    id="enemy-hp-bar"
+                  ></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Правая колонка: действия -->
+        <section class="panel panel--actions" aria-label="Действия">
+          <h2 class="panel__title">Действия в бою</h2>
+          <div class="battle-actions">
+            <button class="btn btn--attack" id="btn-attack" disabled>
+              ⚔ Атаковать
+            </button>
+            <button class="btn btn--defend" id="btn-defend" disabled>
+              🛡 Защищаться
+            </button>
+            <button class="btn btn--item" id="btn-item" disabled>
+              🧪 Использовать предмет
+            </button>
+          </div>
+
+          <h2 class="panel__title panel__title--location">Локация</h2>
+          <div class="location-info">
+            <p class="location-name">
+              Текущая:
+              <span id="location-name" class="location-name__accent">—</span>
+            </p>
+            <p class="location-desc" id="location-desc"></p>
+          </div>
+          <div class="location-actions">
+            <button class="btn btn--move" data-location="village">
+              🏘 Деревня
+            </button>
+            <button class="btn btn--move" data-location="forest">🌲 Лес</button>
+            <button class="btn btn--move" data-location="grove">
+              ✨ Зачарованная Роща
+            </button>
+            <button class="btn btn--move" data-location="dungeon">
+              ⛏ Подземелье
+            </button>
+          </div>
+        </section>
+      </div>
+
+      <!-- Журнал событий -->
+      <section class="panel panel--log" aria-label="Журнал событий">
+        <h2 class="panel__title">Журнал событий</h2>
+        <div class="log" id="log" role="log" aria-live="polite"></div>
+      </section>
+    </div>
+
+    <script src="game.js"></script>
+  </body>
+</html>
