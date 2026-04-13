@@ -136,6 +136,27 @@
       </section>
     </div>
 
+    <!-- Модалка подтверждения сброса -->
+    <div class="modal-overlay" id="modal-reset" hidden>
+      <div
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-reset-title"
+      >
+        <p class="modal__title" id="modal-reset-title">Точно сбросить?</p>
+        <p class="modal__desc">Весь прогресс будет потерян.</p>
+        <div class="modal__actions">
+          <button class="btn btn--modal-confirm" id="modal-reset-confirm">
+            Сбросить
+          </button>
+          <button class="btn btn--modal-cancel" id="modal-reset-cancel">
+            Отмена
+          </button>
+        </div>
+      </div>
+    </div>
+
     <script src="game.js"></script>
   </body>
 </html>
