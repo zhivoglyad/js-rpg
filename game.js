@@ -478,7 +478,20 @@ function flashLevelUp() {
 document.getElementById('btn-attack').addEventListener('click', attack);
 document.getElementById('btn-defend').addEventListener('click', defend);
 document.getElementById('btn-item').addEventListener('click', useItem);
-document.getElementById('btn-reset').addEventListener('click', initGame);
+const modalReset = document.getElementById('modal-reset');
+document.getElementById('btn-reset').addEventListener('click', () => {
+  modalReset.hidden = false;
+});
+document.getElementById('modal-reset-cancel').addEventListener('click', () => {
+  modalReset.hidden = true;
+});
+document.getElementById('modal-reset-confirm').addEventListener('click', () => {
+  modalReset.hidden = true;
+  initGame();
+});
+modalReset.addEventListener('click', e => {
+  if (e.target === modalReset) modalReset.hidden = true;
+});
 
 // Кнопки перемещения — data-location задаёт id локации
 document.querySelectorAll('.btn--move').forEach(btn => {
@@ -492,3 +505,4 @@ document.querySelectorAll('.btn--move').forEach(btn => {
 // ============================================================
 
 initGame();
+
